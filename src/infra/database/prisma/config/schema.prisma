@@ -1,81 +1,81 @@
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
 }
 
 model Account {
-  id String @id @default(uuid())
+    id String @id @default(uuid())
 
-  email    String @unique
-  password String
+    email    String @unique
+    password String
 
-  refresh_token String? @db.Text
-  expires_at    Int?
+    refresh_token String? @db.Text
+    expires_at    Int?
 
-  permissions Permission[] @relation("account_to_permission")
-  owned_rooms Room[]
-  questions   Question[]
+    permissions Permission[] @relation("account_to_permission")
+    owned_rooms Room[]
+    questions   Question[]
 
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+    created_at DateTime @default(now())
+    updated_at DateTime @updatedAt
 
-  @@map("accounts")
+    @@map("accounts")
 }
 
 model Permission {
-  id String @id @default(uuid())
+    id String @id @default(uuid())
 
-  name        String
-  description String?
+    name        String
+    description String?
 
-  vinculed_accounts Account[] @relation("account_to_permission")
-  room              Room      @relation(fields: [roomId], references: [id])
-  roomId            String
+    vinculed_accounts Account[] @relation("account_to_permission")
+    room              Room      @relation(fields: [roomId], references: [id])
+    roomId            String
 
-  @@map("permissions")
+    @@map("permissions")
 }
 
 model Room {
-  id String @id @default(uuid())
+    id String @id @default(uuid())
 
-  code String
-  name String
+    code String
+    name String
 
-  owner   Account? @relation(fields: [ownerId], references: [id])
-  ownerId String?
+    owner   Account? @relation(fields: [ownerId], references: [id])
+    ownerId String?
 
-  permissions Permission[]
-  questions   Question[]
+    permissions Permission[]
+    questions   Question[]
 
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  deleted_at DateTime?
+    created_at DateTime  @default(now())
+    updated_at DateTime  @updatedAt
+    deleted_at DateTime?
 
-  @@map("rooms")
+    @@map("rooms")
 }
 
 model Question {
-  id String @id @default(uuid())
+    id String @id @default(uuid())
 
-  author   Account @relation(fields: [authorId], references: [id])
-  authorId String
+    author   Account @relation(fields: [authorId], references: [id])
+    authorId String
 
-  room   Room   @relation(fields: [roomId], references: [id])
-  roomId String
+    room   Room   @relation(fields: [roomId], references: [id])
+    roomId String
 
-  content       String
-  answer        String?
-  isAnswered    Boolean
-  isHighlighted Boolean
-  likes         Int
+    content       String
+    answer        String?
+    isAnswered    Boolean
+    isHighlighted Boolean
+    likes         Int
 
-  created_at DateTime  @default(now())
-  updated_at DateTime  @updatedAt
-  deleted_at DateTime?
+    created_at DateTime  @default(now())
+    updated_at DateTime  @updatedAt
+    deleted_at DateTime?
 
-  @@map("questions")
+    @@map("questions")
 }

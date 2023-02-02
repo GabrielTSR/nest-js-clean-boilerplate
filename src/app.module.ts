@@ -1,9 +1,9 @@
+import { CreateAccountController } from '@presentation/controller';
 import { Module } from '@nestjs/common';
-import AppController from './app.controller';
 import AppService from './app.service';
 
 @Module({
-    controllers: [AppController],
+    controllers: [CreateAccountController],
     imports: [],
     providers: [AppService]
 })

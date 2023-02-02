@@ -1,21 +1,8 @@
 {
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[prisma]": {
+        "editor.defaultFormatter": "Prisma.prisma-insider",
+        "editor.formatOnSave": true
     },
     "css.lint.unknownAtRules": "ignore",
     "editor.codeActionsOnSave": {
@@ -38,7 +25,7 @@
         "http": "server",
         "presentation": "layout",
         "entity": "class",
-        "in-memory": "test",
+        "in-memory": "test"
     },
     "material-icon-theme.files.associations": {
         "*.error.ts": "stryker",

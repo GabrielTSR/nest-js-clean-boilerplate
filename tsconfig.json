@@ -12,10 +12,17 @@
         "baseUrl": "./",
         "incremental": true,
         "skipLibCheck": true,
-        "strictNullChecks": false,
+        "strictNullChecks": true,
         "noImplicitAny": false,
         "strictBindCallApply": false,
         "forceConsistentCasingInFileNames": false,
-        "noFallthroughCasesInSwitch": false
+        "noFallthroughCasesInSwitch": false,
+        "paths": {
+            "@infra/*": ["src/infra/*"],
+            "@data/*": ["src/data/*"],
+            "@presentation/*": ["src/presentation/*"],
+            "@domain/*": ["src/domain/*"],
+            "@main/*": ["src/main/*"]
+        }
     }
 }
