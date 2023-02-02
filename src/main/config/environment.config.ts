@@ -17,7 +17,7 @@ const getApiPort = (): string => {
     return API_PORTS.development;
 };
 
-export const env = {
+const environmentConfig = {
     apiPort: getApiPort(),
     jwt: {
         expiresInMs: process.env.JWT_SECRET_EXPIRES_IN ?? jwtSecretDefaultExpiresInMs,
@@ -30,3 +30,5 @@ export const env = {
         }
     }
 };
+
+export default environmentConfig;
