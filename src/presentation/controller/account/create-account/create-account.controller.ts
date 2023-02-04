@@ -15,11 +15,14 @@ export class CreateAccountController implements DTO {
     }
 
     @Post()
+    @HttpCode(201)
     public async execute({ email, password }: Input): Output {
         try {
             const result = await this._useCase.execute({ email, password });
 
-            return result;
-        } catch (error) {}
+            return successPost(result);
+        } catch (error) {
+            return badRequest(error);
+        }
     }
 }
