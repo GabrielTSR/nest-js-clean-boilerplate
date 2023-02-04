@@ -15,7 +15,7 @@
     "protocol": "typescript",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "material-icon-theme.folders.associations": {
-        "protocol": "typescript",
+        "util-type": "typescript",
         "crypto": "secure",
         "use-case": "packages",
         "repository": "mappings",
@@ -28,8 +28,10 @@
         "in-memory": "test"
     },
     "material-icon-theme.files.associations": {
+        "index.ts": "puppet",
         "*.error.ts": "stryker",
         "*.helper.ts": "smarty",
+        "*.constant.ts": "posthtml",
         "*.domain.ts": "lib",
         "*.model.ts": "pawn",
         "*.config.ts": "settings",
@@ -38,6 +40,7 @@
         "*.payload.ts": "commitlint",
         "*.protocol.ts": "contributing",
         "*.service.ts": "nest-service",
+        "*.module.ts": "nest-module",
         "*.use-case.ts": "terraform",
         "*.repository.ts": "parcel",
         "server.ts": "serverless"

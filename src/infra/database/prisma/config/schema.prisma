@@ -10,8 +10,9 @@ datasource db {
 model Account {
     id String @id @default(uuid())
 
-    email    String @unique
-    password String
+    email             String  @unique
+    password          String
+    profile_photo_url String?
 
     refresh_token String? @db.Text
     expires_at    Int?
@@ -32,9 +33,9 @@ model Permission {
     name        String
     description String?
 
-    vinculed_accounts Account[] @relation("account_to_permission")
-    room              Room      @relation(fields: [roomId], references: [id])
-    roomId            String
+    linked_accounts Account[] @relation("account_to_permission")
+    room            Room      @relation(fields: [roomId], references: [id])
+    roomId          String
 
     @@map("permissions")
 }
@@ -45,8 +46,8 @@ model Room {
     code String
     name String
 
-    owner   Account? @relation(fields: [ownerId], references: [id])
-    ownerId String?
+    owner   Account @relation(fields: [ownerId], references: [id])
+    ownerId String
 
     permissions Permission[]
     questions   Question[]

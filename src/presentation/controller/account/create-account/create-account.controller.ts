@@ -1,16 +1,25 @@
-import { Controller, Get } from '@nestjs/common';
-import AppService from '../../../../app.service';
+import { Controller, Post } from '@nestjs/common';
+import { CreateAccountUseCase } from '@data/use-case/account';
+import {
+    CreateAccountDTOInput as Input,
+    CreateAccountDTOOutput as Output
+} from './create-account.controller.dto';
+import type { CreateAccountDTO as DTO } from './create-account.controller.dto';
 
 @Controller('account')
-export class CreateAccountController {
-    private readonly appService: AppService;
+export class CreateAccountController implements DTO {
+    private readonly _useCase: CreateAccountUseCase;
 
-    public constructor(appService: AppService) {
-        this.appService = appService;
+    public constructor(useCase: CreateAccountUseCase) {
+        this._useCase = useCase;
     }
 
-    @Get()
-    public getHello(): string {
-        return this.appService.getHello();
+    @Post()
+    public async execute({ email, password }: Input): Output {
+        try {
+            const result = await this._useCase.execute({ email, password });
+
+            return result;
+        } catch (error) {}
     }
 }
