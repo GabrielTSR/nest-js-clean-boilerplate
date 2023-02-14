@@ -1,10 +1,10 @@
+import type { AccountModelGet } from '@domain/model';
 import type { AtLeastOne } from '@domain/helper/util-type';
-import type { UserModel } from '@domain/model';
 
-export type GetAccountByRepositoryInput = AtLeastOne<UserModel>;
+export type GetAccountByRepositoryInput = AtLeastOne<AccountModelGet>;
 
-export type GetAccountByRepositoryOutput = Promise<UserModel | null>;
+export type GetAccountByRepositoryOutput = AccountModelGet | null;
 
-export interface GetAccountByRepositoryProtocol {
-    execute: (input: GetAccountByRepositoryInput) => GetAccountByRepositoryOutput;
+export abstract class GetAccountByRepositoryProtocol {
+  public execute: (input: GetAccountByRepositoryInput) => Promise<GetAccountByRepositoryOutput>;
 }

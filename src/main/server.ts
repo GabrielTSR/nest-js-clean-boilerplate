@@ -1,8 +1,8 @@
-import { AppModule, environmentConfig } from '.';
+import { AppModule, environmentConfig } from './config';
 import { NestFactory } from '@nestjs/core';
 
 void (async (): Promise<void> => {
-    const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule);
 
-    await app.listen(environmentConfig.apiPort);
+  await app.listen(environmentConfig.apiPort);
 })();

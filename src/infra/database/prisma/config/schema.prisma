@@ -10,19 +10,19 @@ datasource db {
 model Account {
     id String @id @default(uuid())
 
-    email             String  @unique
-    password          String
-    profile_photo_url String?
+    email           String  @unique
+    password        String
+    profilePhotoUrl String?
 
-    refresh_token String? @db.Text
-    expires_at    Int?
+    refreshToken String? @db.Text
+    expiresAt    Int?
 
     permissions Permission[] @relation("account_to_permission")
     owned_rooms Room[]
     questions   Question[]
 
-    created_at DateTime @default(now())
-    updated_at DateTime @updatedAt
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 
     @@map("accounts")
 }
@@ -33,9 +33,9 @@ model Permission {
     name        String
     description String?
 
-    linked_accounts Account[] @relation("account_to_permission")
-    room            Room      @relation(fields: [roomId], references: [id])
-    roomId          String
+    linkedAccounts Account[] @relation("account_to_permission")
+    room           Room      @relation(fields: [roomId], references: [id])
+    roomId         String
 
     @@map("permissions")
 }
@@ -52,9 +52,9 @@ model Room {
     permissions Permission[]
     questions   Question[]
 
-    created_at DateTime  @default(now())
-    updated_at DateTime  @updatedAt
-    deleted_at DateTime?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
 
     @@map("rooms")
 }
@@ -74,9 +74,9 @@ model Question {
     isHighlighted Boolean
     likes         Int
 
-    created_at DateTime  @default(now())
-    updated_at DateTime  @updatedAt
-    deleted_at DateTime?
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    deletedAt DateTime?
 
     @@map("questions")
 }

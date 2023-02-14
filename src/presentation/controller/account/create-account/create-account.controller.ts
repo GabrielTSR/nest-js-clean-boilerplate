@@ -1,28 +1,30 @@
-import { Controller, Post } from '@nestjs/common';
-import { CreateAccountUseCase } from '@data/use-case/account';
-import {
-    CreateAccountDTOInput as Input,
-    CreateAccountDTOOutput as Output
-} from './create-account.controller.dto';
-import type { CreateAccountDTO as DTO } from './create-account.controller.dto';
+import { Body, Controller, HttpCode, HttpException, HttpStatus, Post } from '@nestjs/common';
+import { CreateAccountUseCase } from '@data/use-case';
+import { CreateAccountRequest as Request } from './create-account.controller.dto';
+import { ServerError } from '@domain/error';
+import { successPost } from '@presentation/helper/http';
+import type { AccountModelGet } from '@domain/model';
+import type { HttpResponse } from '@presentation/helper/http';
+import type { CreateAccountResponse as Response } from './create-account.controller.dto';
 
 @Controller('account')
-export class CreateAccountController implements DTO {
-    private readonly _useCase: CreateAccountUseCase;
+export class CreateAccountController {
+  private readonly _useCase: CreateAccountUseCase;
 
-    public constructor(useCase: CreateAccountUseCase) {
-        this._useCase = useCase;
+  public constructor(useCase: CreateAccountUseCase) {
+    this._useCase = useCase;
+  }
+
+  @Post()
+  @HttpCode(HttpStatus.CREATED)
+  public async execute(@Body() { email, password }: Request): Promise<HttpResponse<Response>> {
+    try {
+      const result: AccountModelGet = await this._useCase.execute({ email, password });
+
+      return successPost(result);
+    } catch (error) {
+      if (error instanceof HttpException) throw error;
+      throw new ServerError();
     }
-
-    @Post()
-    @HttpCode(201)
-    public async execute({ email, password }: Input): Output {
-        try {
-            const result = await this._useCase.execute({ email, password });
-
-            return successPost(result);
-        } catch (error) {
-            return badRequest(error);
-        }
-    }
+  }
 }

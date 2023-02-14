@@ -1,12 +1,13 @@
-import type { UserModel } from '@domain/model';
+import type { AccountModelGet } from '@domain/model';
 
 export interface CreateAccountRepositoryInput {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
+  finishedAt: Date | null;
 }
 
-export type CreateAccountRepositoryOutput = Promise<UserModel>;
+export type CreateAccountRepositoryOutput = Omit<AccountModelGet, 'password'>;
 
-export interface CreateAccountRepositoryProtocol {
-    execute: (input: CreateAccountRepositoryInput) => CreateAccountRepositoryOutput;
+export abstract class CreateAccountRepositoryProtocol {
+  public execute: (input: CreateAccountRepositoryInput) => Promise<CreateAccountRepositoryOutput>;
 }

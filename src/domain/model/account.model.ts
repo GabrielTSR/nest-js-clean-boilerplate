@@ -1,19 +1,23 @@
-import type { PermissionModel, QuestionModel, RoomModel } from '.';
-
-export interface AccountModel {
-    id: string;
-
-    email: string;
-    password: string;
-    profilePhotoUrl: string | null;
-
-    refreshToken: string | null;
-    tokenExpiresAt: number | null;
-
-    permissions?: PermissionModel[];
-    ownedRooms?: RoomModel[];
-    questions?: QuestionModel[];
-
-    createdAt: Date;
-    updatedAt: Date | null;
+export interface AccountModelGet {
+  id: string;
+  email: string;
+  profilePhotoUrl: string | null;
+  refreshToken: string | null;
+  expiresAt: number | null;
+  createdAt: Date;
+  updatedAt: Date;
 }
+
+export interface AccountModelWithPassword extends AccountModelGet {
+  password: string;
+}
+
+export interface AccountModelWithToken extends AccountModelGet {
+  refreshToken: string | null;
+  tokenExpiresAt: Date | null;
+}
+
+export interface AccountModel
+  extends AccountModelGet,
+    AccountModelWithToken,
+    AccountModelWithPassword {}

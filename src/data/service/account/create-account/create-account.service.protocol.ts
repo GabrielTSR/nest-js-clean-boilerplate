@@ -1,12 +1,12 @@
-import type { UserModel } from '@domain/model';
+import type { AccountModelGet } from '@domain/model';
 
 export interface CreateAccountServiceInput {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
-export type CreateAccountServiceOutput = Promise<UserModel>;
+export type CreateAccountServiceOutput = AccountModelGet;
 
 export interface CreateAccountServiceProtocol {
-    execute: (input: CreateAccountServiceInput) => CreateAccountServiceOutput;
+  execute: (input: CreateAccountServiceInput) => Promise<CreateAccountServiceOutput>;
 }

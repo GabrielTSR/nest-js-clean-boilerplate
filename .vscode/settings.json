@@ -1,51 +1,58 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[prisma]": {
-        "editor.defaultFormatter": "Prisma.prisma-insider",
-        "editor.formatOnSave": true
-    },
-    "css.lint.unknownAtRules": "ignore",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4,
-    "eslint.validate": ["javascript", "typescript"],
-    "explorer.compactFolders": false,
-    "protocol": "typescript",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "material-icon-theme.folders.associations": {
-        "util-type": "typescript",
-        "crypto": "secure",
-        "use-case": "packages",
-        "repository": "mappings",
-        "domain": "interface",
-        "infra": "api",
-        "main": "global",
-        "http": "server",
-        "presentation": "layout",
-        "entity": "class",
-        "in-memory": "test"
-    },
-    "material-icon-theme.files.associations": {
-        "index.ts": "puppet",
-        "*.error.ts": "stryker",
-        "*.helper.ts": "smarty",
-        "*.constant.ts": "posthtml",
-        "*.domain.ts": "lib",
-        "*.model.ts": "pawn",
-        "*.config.ts": "settings",
-        "*.controller.ts": "nest-controller",
-        "*.dto.ts": "contributing",
-        "*.payload.ts": "commitlint",
-        "*.protocol.ts": "contributing",
-        "*.service.ts": "nest-service",
-        "*.module.ts": "nest-module",
-        "*.use-case.ts": "terraform",
-        "*.repository.ts": "parcel",
-        "server.ts": "serverless"
-    },
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.iconTheme": "material-icon-theme"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma-insider",
+    "editor.formatOnSave": true
+  },
+  "css.lint.unknownAtRules": "ignore",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "eslint.validate": ["javascript", "typescript"],
+  "explorer.compactFolders": false,
+  "protocol": "typescript",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "material-icon-theme.folders.associations": {
+    "util-type": "typescript",
+    "crypto": "secure",
+    "use-case": "packages",
+    "repository": "mappings",
+    "domain": "interface",
+    "infra": "api",
+    "mock": "less",
+    "main": "global",
+    "http": "server",
+    "presentation": "layout",
+    "entity": "class",
+    "generic": "import",
+    "in-memory": "test"
+  },
+  "material-icon-theme.files.associations": {
+    "index.ts": "apiblueprint",
+    "*.helper.ts": "smarty",
+    "*.enum.ts": "posthtml",
+    "*.constant.ts": "posthtml",
+    "*.error.ts": "stryker",
+    "*.domain.ts": "lib",
+    "*.model.ts": "pawn",
+    "*.config.ts": "settings",
+    "*.controller.ts": "nest-controller",
+    "*.middleware.ts": "merlin",
+    "*.dto.ts": "contributing",
+    "*.payload.ts": "commitlint",
+    "*.protocol.ts": "contributing",
+    "*.service.ts": "nest-service",
+    "*.module.ts": "nest-module",
+    "*.use-case.ts": "terraform",
+    "*.infra.ts": "cabal",
+    "*.fake-repository.ts": "parcel",
+    "*.repository.ts": "database",
+    "*.mock.ts": "less",
+    "server.ts": "serverless"
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "material-icon-theme"
 }
